@@ -1,0 +1,24 @@
+Thu Sep  7 09:38:49 2023
+WARNING: Unknown warning type Time = 0.0600.
+
+Mon Sep 11 14:45:24 2023
+WARNING: Unknown warning type Time = 0.0300.
+
+Mon Sep 11 14:46:04 2023
+WARNING: Unknown warning type Time = 0.0300.
+
+Mon Sep 11 14:53:49 2023
+WARNING: Unknown warning type Time = 0.0300.
+
+Mon Sep 11 15:06:26 2023
+WARNING: Unknown warning type Time = 0.4200.
+
+Mon Sep 11 15:06:51 2023
+WARNING: Unknown warning type Time = 0.4400.
+
+Wed Sep 13 14:05:05 2023
+WARNING: Unknown warning type Time = 0.6500.
+
+Tue Sep 26 14:27:59 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.1400.
+

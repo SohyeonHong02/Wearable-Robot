@@ -1,0 +1,111 @@
+<mujoco model="inverted pendulum">
+    <compiler angle="radian" />
+			
+    <option timestep="0.01" iterations="20">
+        <flag sensornoise="enable"/>
+    </option>
+
+    <default>
+        <geom rgba="0.45 0.6 0.6 1" />
+        <site type="sphere" size="0.02"/>
+    </default>
+
+    <!-- Add the following section for gravity -->
+    <option gravity="0 0 -9.81" />
+
+    <worldbody>
+        <light directional="true" cutoff="4" exponent="20" diffuse="1 1 1" specular="0 0 0" pos=".9 .3 2.5" dir="-.9 -.3 -2.5" />
+
+        <!-- Ground -->
+        <geom name="ground" type="plane" pos="0 0 0" size="5 5 5" rgba=".25 .26 .25 1" />
+
+        <!-- Beam -->
+        <body name="beam" pos="0 0 1.5">
+            <geom name="butt" type="capsule" fromto=" 0 -.33 0.9 0 .33 0.9"  size="0.18" mass="5"/>
+            
+
+            <!-- Left rod1 -->
+            <body name="left" pos="0 -0.30 0.5">
+                <geom name="rod1" type="box" pos="0 0 0" size="0.12 0.12 0.4" mass="6.0" />
+                <joint name="thigh_L" pos="0 0 0.4" axis="0 1 0"  damping="1" />
+                <body name="knee_L" pos="0 0 -0.4">
+                    <geom name="ballgeom1" type="sphere" size="0.08" />
+                </body>
+                <!--Additional rod1-->
+                <body name="additional_rod1" pos="0 0 -0.9"> 
+                    <geom name="additional_rod1_geom" type="box" pos="0 0 0" size="0.08 0.08 .5" mass="3.66" />
+                    <!-- Foot -->
+                    <body name="left_foot" pos="0.02 0 -0.56">  
+                        <geom name="left_foot_cap1" type="capsule" fromto="0 0 0 -0.30 -0.03 0"  size="0.075" />
+                        <geom name="left_foot_cap2" type="capsule" fromto="0 0 0 -0.30  0.00 0"  size="0.075" />
+                        <geom name="left_foot_cap3" type="capsule" fromto="0 0 0 -0.30  0.03 0"  size="0.075" />
+                    </body>
+                </body>
+            </body>
+            
+            <body name="assist_motor_left" pos="0 -0.55 0.85">
+                <geom name="left" type="box" size="0.03 0.1 0.03" rgba="0.6 0.6 1.0 0.6" mass="1"/>
+                <joint name="assist_torque_L" pos="0 -0.23 0" axis="0 1 0" damping="1" />
+                
+                <geom name="connect_left" type="box" pos="0 0 -0.2" size="0.05 0.02 0.2" rgba="0.6 0.6 1.0 0.6"/>
+                <body name="wearable_L" pos="0 0.15 -0.4">
+                    <geom name="box1_geom1" type="box" pos="-0.14 0.05 0" size="0.01 0.20 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                    <geom name="box1_geom2" type="box" pos="0.14 0.05 0" size="0.01 0.20 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                    <geom name="box1_geom3" type="box" pos="0 -0.14 0" size="0.13 0.01 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                    <geom name="box1_geom4" type="box" pos="0 0.24 0" size="0.13 0.01 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                    <joint name="box_L" pos="0 0 0" axis="0 -1 0" limited="true" damping="1" range="-0.05 0.05"/>                     
+                </body>
+            </body>  
+
+            <!--===========================================================================================================-->
+            <!-- Right rod2 --> 
+            <body name="right" pos="0 0.30 0.5">
+                <geom name="rod2" type="box" pos="0 0 0" size="0.12 0.12 0.4" mass="6.0"/>
+                <joint name="thigh_R" pos="0 0 0.4" axis="0 -1 0"  damping="1" />
+                <body name="knee_R" pos="0 0 -0.4">
+                    <geom name="ballgeom2" type="sphere" size="0.08"/> 
+                </body>
+                
+                <!-- Additional rod2 -->
+                <body name="additional_rod2" pos="0 0 -0.9">
+                    <geom name="additional_rod2_geom" type="box" pos="0 0 0" size="0.08 0.08 0.5" mass="3.66" />
+                    <!-- Foot -->
+                    <body name="right_foot" pos="0.02 0 -0.56">
+                        <geom name="right_foot_cap1" type="capsule" fromto="0 0 0 -0.30 -0.03 0"  size="0.075"/>
+                        <geom name="right_foot_cap2" type="capsule" fromto="0 0 0 -0.30  0.0 0"  size="0.075"/>
+                        <geom name="right_foot_cap3" type="capsule" fromto="0 0 0 -0.30  0.03 0" size="0.075"/>
+                    </body>
+                </body> 
+            </body>
+
+            <body name="assist_motor_right" pos="0 0.55 0.85">
+                <geom name="right" type="box" size="0.03 0.1 0.03" rgba="0.6 0.6 1.0 0.6" mass="1"/>
+                <joint name="assist_torque_R" pos="0 0.23 0" axis="0 -1 0" damping="1" />
+
+                <geom name="connect_right" type="box" pos="0 0 -0.2" size="0.05 0.02 0.2" rgba="0.6 0.6 1.0 0.6" />
+                <body name="wearable_R" pos="0 -0.15 -0.4">
+                        <geom name="box2_geom1" type="box" pos="-0.14 -0.05 0" size="0.01 0.20 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                        <geom name="box2_geom2" type="box" pos="0.14 -0.05 0" size="0.01 0.20 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                        <geom name="box2_geom3" type="box" pos="0 0.14 0" size="0.13 0.01 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                        <geom name="box2_geom4" type="box" pos="0 -0.24 0" size="0.13 0.01 0.12" rgba="0.6 0.6 1.0 0.6"/>
+                        <joint name="box_R" pos="0 0 0" axis="0 1 0" limited="true" damping="1" range="-0.05 0.05"/>  
+                </body>
+            </body>
+        </body>
+    </worldbody> 
+
+	<actuator>
+        <motor joint='thigh_L' name='motor1'/>
+        
+		<motor joint='thigh_R' name='motor2'/>	
+        <motor joint='assist_torque_L' name="left_motor"/>
+        <motor joint='assist_torque_R' name="right_motor"/>
+	</actuator>
+
+	<contact>
+		<exclude body1="beam" body2="left"/> 
+		<exclude body1="beam" body2="right"/>
+        <exclude body1="left" body2="assist_motor_left"/> 
+		<exclude body1="right" body2="assist_motor_right"/>
+	</contact>
+</mujoco>

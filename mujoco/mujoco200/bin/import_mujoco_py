@@ -1,0 +1,39 @@
+import mujoco_py
+import numpy as np
+
+# MuJoCo XML 모델 로드
+model = mujoco_py.load_model_from_path("InvertedPendulum.xml")
+
+# 사람의 체중 값 설정
+person_weight = 70  # 예시로 70kg로 설정
+model.opt.asset.materials[0].density = person_weight
+
+# MuJoCo 시뮬레이션 생성
+sim = mujoco_py.MjSim(model)
+
+# PD 제어 파라미터 설정
+kp = 200  # 비례 게인
+kd = 50  # 감쇠 게인
+
+# 제어할 모터 인덱스 설정
+motor_idx = sim.model.joint_name2id('motor')
+
+# 시뮬레이션 실행
+while True:
+    # 현재 상태 정보 가져오기
+    qpos = sim.data.qpos
+    qvel = sim.data.qvel
+
+    # 목표 각도 설정 (예시로 0.1 radian으로 설정)
+    target_angle = 0.1
+
+    # PD 제어 계산
+    error = target_angle - qpos[motor_idx]
+    desired_torque = kp * error - kd * qvel[motor_idx]
+
+    # 모터 제어 토크 적용
+    sim.data.ctrl[motor_idx] = desired_torque
+
+    # 시뮬레이션 스텝 진행
+    sim.step()
+

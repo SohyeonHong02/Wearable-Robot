@@ -1,0 +1,97 @@
+<mujoco model="inverted pendulum">
+    <compiler angle="radian" />
+    <option timestep="0.01" iterations="20">
+        <flag sensornoise="enable" />
+    </option>
+    <size njmax="500" nconmax="100" />
+    <default class="main">
+        <geom rgba="0.45 0.6 0.6 1" />
+        <site size="0.02 0.005 0.005" />
+    </default>
+    <worldbody>
+        <geom name="ground" size="5 5 5" type="plane" rgba="0.25 0.26 0.25 1" />
+        <light pos="0.9 0.3 2.5" dir="-0.336581 -0.112194 -0.934947" directional="true" cutoff="4" exponent="20" diffuse="1 1 1" specular="0 0 0" />
+        <body name="beam" pos="0 0 1.5">
+            <inertial pos="0 0 0.9" quat="0.707107 0.707107 0 0" mass="5" diaginertia="0.3345 0.3345 0.081" />
+            <geom name="butt" size="0.18 0.33" pos="0 0 0.9" quat="0.707107 0.707107 0 0" type="capsule" />
+            <body name="left" pos="0 -0.3 0.5">
+                <inertial pos="0 0 0" mass="6" diaginertia="0.3488 0.3488 0.0576" />
+                <joint name="thigh_L" pos="0 0 0.4" axis="0 1 0" damping="1" />
+                <geom name="rod1" size="0.12 0.12 0.4" type="box" />
+                <body name="knee_L" pos="0 0 -0.4">
+                    <inertial pos="0 0 0" mass="2.14466" diaginertia="0.00549033 0.00549033 0.00549033" />
+                    <geom name="ballgeom1" size="0.08" />
+                </body>
+                <body name="additional_rod1" pos="0 0 -0.9">
+                    <inertial pos="0 0 0" mass="3.66" diaginertia="0.312808 0.312808 0.015616" />
+                    <geom name="additional_rod1_geom" size="0.08 0.08 0.5" type="box" />
+                    <body name="left_foot" pos="0.02 0 -0.56">
+                        <inertial pos="-0.15 0 0" quat="0 0.707107 0 0.707107" mass="19.9333" diaginertia="0.265865 0.2615 0.0604273" />
+                        <geom name="left_foot_cap1" size="0.075 0.150748" pos="-0.15 -0.015 0" quat="0.707107 -0.0703598 0.703598 0" type="capsule" />
+                        <geom name="left_foot_cap2" size="0.075 0.15" pos="-0.15 0 0" quat="0.707107 0 0.707107 0" type="capsule" />
+                        <geom name="left_foot_cap3" size="0.075 0.150748" pos="-0.15 0.015 0" quat="0.707107 0.0703598 0.703598 0" type="capsule" />
+                    </body>
+                </body>
+            </body>
+            <body name="assist_motor_left" pos="0 -0.55 0.85">
+                <inertial pos="0 0 -0.123077" mass="2.6" diaginertia="0.0497954 0.0478821 0.00518" />
+                <joint name="real_motor_left" pos="0 -0.23 0" axis="0 1 0" damping="1" />
+                <geom name="left" size="0.03 0.1 0.03" type="box" rgba="0.6 0.6 1 0.6" />
+                <geom name="connect_left" size="0.05 0.02 0.2" pos="0 0 -0.2" type="box" rgba="0.6 0.6 1 0.6" />
+                <body name="wearable_L" pos="0 0.15 -0.4">
+                    <inertial pos="0 0.05 0" quat="0.5 0.5 -0.5 0.5" mass="6.336" diaginertia="0.230842 0.171802 0.119866" />
+                    <joint name="box_L" pos="0 0 0" axis="0 -1 0" limited="true" range="-0.05 0.05" damping="1" />
+                    <geom name="box1_geom1" size="0.01 0.2 0.12" pos="-0.14 0.05 0" type="box" rgba="0.6 0.6 1 0.6" />
+                    <geom name="box1_geom2" size="0.01 0.2 0.12" pos="0.14 0.05 0" type="box" rgba="0.6 0.6 1 0.6" />
+                    <geom name="box1_geom3" size="0.13 0.01 0.12" pos="0 -0.14 0" type="box" rgba="0.6 0.6 1 0.6" />
+                    <geom name="box1_geom4" size="0.13 0.01 0.12" pos="0 0.24 0" type="box" rgba="0.6 0.6 1 0.6" />
+                </body>
+            </body>
+            <body name="right" pos="0 0.3 0.5">
+                <inertial pos="0 0 0" mass="6" diaginertia="0.3488 0.3488 0.0576" />
+                <joint name="thigh_R" pos="0 0 0.4" axis="0 1 0" damping="1" />
+                <geom name="rod2" size="0.12 0.12 0.4" type="box" />
+                <body name="knee_R" pos="0 0 -0.4">
+                    <inertial pos="0 0 0" mass="2.14466" diaginertia="0.00549033 0.00549033 0.00549033" />
+                    <geom name="ballgeom2" size="0.08" />
+                </body>
+                <body name="additional_rod2" pos="0 0 -0.9">
+                    <inertial pos="0 0 0" mass="3.66" diaginertia="0.312808 0.312808 0.015616" />
+                    <geom name="additional_rod2_geom" size="0.08 0.08 0.5" type="box" />
+                    <body name="right_foot" pos="0.02 0 -0.56">
+                        <inertial pos="-0.15 0 0" quat="0 0.707107 0 0.707107" mass="19.9333" diaginertia="0.265865 0.2615 0.0604273" />
+                        <geom name="right_foot_cap1" size="0.075 0.150748" pos="-0.15 -0.015 0" quat="0.707107 -0.0703598 0.703598 0" type="capsule" />
+                        <geom name="right_foot_cap2" size="0.075 0.15" pos="-0.15 0 0" quat="0.707107 0 0.707107 0" type="capsule" />
+                        <geom name="right_foot_cap3" size="0.075 0.150748" pos="-0.15 0.015 0" quat="0.707107 0.0703598 0.703598 0" type="capsule" />
+                    </body>
+                </body>
+            </body>
+            <body name="assist_motor_right" pos="0 0.55 0.85">
+                <inertial pos="0 0 -0.123077" mass="2.6" diaginertia="0.0497954 0.0478821 0.00518" />
+                <joint name="real_motor_right" pos="0 0.23 0" axis="0 1 0" damping="1" />
+                <geom name="right" size="0.03 0.1 0.03" type="box" rgba="0.6 0.6 1 0.6" />
+                <geom name="connect_right" size="0.05 0.02 0.2" pos="0 0 -0.2" type="box" rgba="0.6 0.6 1 0.6" />
+                <body name="wearable_R" pos="0 -0.15 -0.4">
+                    <inertial pos="0 -0.05 0" quat="0.5 0.5 -0.5 0.5" mass="6.336" diaginertia="0.230842 0.171802 0.119866" />
+                    <joint name="box_R" pos="0 0 0" axis="0 1 0" limited="true" range="-0.05 0.05" damping="1" />
+                    <geom name="box2_geom1" size="0.01 0.2 0.12" pos="-0.14 -0.05 0" type="box" rgba="0.6 0.6 1 0.6" />
+                    <geom name="box2_geom2" size="0.01 0.2 0.12" pos="0.14 -0.05 0" type="box" rgba="0.6 0.6 1 0.6" />
+                    <geom name="box2_geom3" size="0.13 0.01 0.12" pos="0 0.14 0" type="box" rgba="0.6 0.6 1 0.6" />
+                    <geom name="box2_geom4" size="0.13 0.01 0.12" pos="0 -0.24 0" type="box" rgba="0.6 0.6 1 0.6" />
+                </body>
+            </body>
+        </body>
+    </worldbody>
+    <contact>
+        <exclude body1="beam" body2="left" />
+        <exclude body1="beam" body2="right" />
+        <exclude body1="left" body2="assist_motor_left" />
+        <exclude body1="right" body2="assist_motor_right" />
+    </contact>
+    <actuator>
+        <general name="motor1" joint="thigh_L" />
+        <general name="motor2" joint="thigh_R" />
+        <general name="left_motor" joint="real_motor_left" />
+        <general name="right_motor" joint="real_motor_right" />
+    </actuator>
+</mujoco>

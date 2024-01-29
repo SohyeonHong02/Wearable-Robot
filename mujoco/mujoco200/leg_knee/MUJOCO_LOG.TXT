@@ -1,0 +1,87 @@
+Wed Aug 23 15:04:13 2023
+WARNING: Unknown warning type Time = 0.0700.
+
+Wed Aug 23 15:04:13 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Wed Aug 23 15:05:02 2023
+WARNING: Unknown warning type Time = 0.0700.
+
+Wed Aug 23 15:05:02 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Wed Aug 23 15:08:14 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Wed Aug 23 15:08:14 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:14 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:14 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:14 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:14 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:15 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:15 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:15 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:15 2023
+WARNING: Unknown warning type Time = 0.0800.
+
+Wed Aug 23 15:08:27 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 5. The simulation is unstable. Time = 0.0900.
+
+Wed Aug 23 15:08:27 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:27 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:27 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:27 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:27 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:28 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:28 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:28 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:28 2023
+WARNING: Unknown warning type Time = 0.1000.
+
+Wed Aug 23 15:08:41 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 4. The simulation is unstable. Time = 0.3300.
+
+Wed Aug 23 15:08:42 2023
+WARNING: Unknown warning type Time = 0.7800.
+
+Wed Aug 23 15:08:44 2023
+WARNING: Unknown warning type Time = 0.7800.
+
+Wed Aug 23 15:08:45 2023
+WARNING: Unknown warning type Time = 0.7800.
+
+Wed Aug 23 15:08:46 2023
+WARNING: Unknown warning type Time = 0.7800.
+
