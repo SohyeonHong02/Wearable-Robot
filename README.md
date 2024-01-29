@@ -1,2 +1,2 @@
 # Wearable-Robot
-Hip Joint Assistive Wearable Robot Simulation
+Kist Hip Joint Assistive Wearable Robot Simulation
